@@ -1,4 +1,4 @@
-use bevy::{input::Input, math::Vec3, prelude::*, render::camera::Camera};
+use bevy::{input::Input, math::Vec3, prelude::*, render::camera::Camera, core_pipeline::clear_color::ClearColorConfig};
 
 // A simple camera system for moving and zooming the camera.
 #[allow(dead_code)]
@@ -46,6 +46,15 @@ pub fn movement(
     }
 }
 
+const BG_GRAY: f32 = 0.2;
+
 pub fn camera_setup(mut commands: Commands) {
-    commands.spawn(Camera2dBundle::default());
+    
+    commands.spawn(Camera2dBundle {
+        camera_2d: Camera2d{
+            clear_color: ClearColorConfig::Custom(Color::rgb(BG_GRAY, BG_GRAY, BG_GRAY)),
+            ..default()
+        },
+        ..default()
+    });
 }

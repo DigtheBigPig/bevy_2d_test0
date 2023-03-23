@@ -5,7 +5,7 @@ pub struct DebugPlugin;
 
 impl Plugin for DebugPlugin {
     fn build(&self, app: &mut App) {
-        if cfg!(debug_assertions) {
+        if cfg!(debug_assertions) && crate::INSPECT {
             app.add_plugin(WorldInspectorPlugin::new());
         }
     }

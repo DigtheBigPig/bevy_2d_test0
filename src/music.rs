@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
 
-const MUTE: bool = false;
+const MUTE: bool = true;
 /*
 pub fn play_music(
     app_state: Res<State<AppState>>,

@@ -34,7 +34,7 @@ fn main() {
         .add_plugins(DefaultPlugins.set(WindowPlugin{
             primary_window: Some(Window {
                 title: String::from(
-                    "This is the text at the top bar",
+                    "Follow the line game: hold left click to draw",
                 ),
                 mode: bevy_window::WindowMode::Windowed,
                 ..Default::default()

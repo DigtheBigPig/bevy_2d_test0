@@ -1,6 +1,6 @@
-use std::f32::consts::{PI};
+use std::f32::consts::PI;
 
-use bevy::{prelude::*, render::render_resource::encase::rts_array::Length};
+use bevy::prelude::*;
 use rand::{self, Rng};
 
 use crate::ui::{DifficultyNumber, LengthNumber};
@@ -340,8 +340,6 @@ pub fn compare_line_vecs(
     }
     let mut text = text_query.get_single_mut().unwrap();
     text.sections[0].value = format!("{:.3}\n{:.3}",score.0.to_string(), highscore.0.to_string());
-    println!("your error is: {}", line_error);
-    println!("Your score: {}%", score.0);
 
 }
 
@@ -352,7 +350,7 @@ fn is_next_closer(x: Vec2, u: Vec2, v: Vec2) -> bool {
 }
 
 fn calculate_score(e: f32) -> f32 {
-    return (100.0-5.0*e).max(0.0);
+    return (100.0-5.0*(e-0.25)).max(0.0).min(100.0);
 }
 
 
